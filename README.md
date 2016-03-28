@@ -1,7 +1,9 @@
 # Pinguo Jump
 
 Projeto Estagio I - Fa7
+
 Jeferson Araujo de Sousa
+
 jefersonaraujo95@gmail.com
 
    Este programa é um software livre; você pode redistribuí-lo e/ou 
