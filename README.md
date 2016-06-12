@@ -20,4 +20,26 @@ jefersonaraujo95@gmail.com
     com este programa. Se não, veja <http://www.gnu.org/licenses/>.
     
     
+# Apresentação | Enrendo 
+O jogo se passa na Antártida onde um simpático pinguim (pinguo) vive, com o aquecimento global ocorre uma descongelamento de uma parte do penhasco onde pinguo estava e ele cai. Ajude esse pequeno desbravador a subir o penhasco ate o topo.
 
+#Objeto Geral
+
+Objeto geral é pular de bloco de pedra em pedra ate o topo, usando o sensor de movimento do dispositivo. 
+
+#Objeto Especifico
+
+Pular em bloco em bloco, e pegar power up's  ou desviar de “down up's” que ira atrapalhar o objeto de geral e subir o mais rápido possível antes que bloco quebre.
+
+
+
+#Regras e Funcionamento 
+
+O jogo é bem simples, o objeto geral é pular  de pedra em pedra  usando o sensor de movimento do dispositivo, o jogo  tem um tempo que caso acabe o pinguim morre, durante o  jogo aparecerá  power up’s de  cristal de neve que acrescentar mais tempo a vida de pinguo. 
+
+
+#Telas : Jogo
+Menu : Link para demais telas contidas ;
+Score : Tela onde o Top Five;
+Credits : Tela com informações do autor e colaboradores;
+Options : Tela com opções de desabilitar e habiltar funcionalidade do 	jogo(musíca)
