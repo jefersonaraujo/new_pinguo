@@ -2,14 +2,14 @@
 
 local screenW, screenH = display.contentWidth, display.contentHeight
 local composer = require( "composer" )
-local neve = require("neve")
-
-
+--local show = require("show")
+--Runtime:addEventListener("enterFrame",show.make)
 local scene = composer.newScene()
-local physics = require("physics")
 
--- somFundo = audio.loadSound("music/happy.mp3")
-physics.setGravity( 0,9.8 )
+local scoreTF 
+
+
+local alertScore 
 
 -- -----------------------------------------------------------------------------------------------------------------
 -- All code outside of the listener functions will only be executed ONCE unless "composer.removeScene()" is called.
@@ -26,81 +26,46 @@ function scene:create(event)
 
     local sceneGroup = self.view
 
-    local background_menu = display.newImageRect("img/bgplay4.png", screenW *2 , screenH * 2)    
+    local background_menu = display.newImageRect("img/criff.png", screenW *2 , screenH * 2)    
     sceneGroup:insert(background_menu)
 
-    local texto = display.newText("Pinguo Jump", screenW /2 , screenH / 4 , "snow.ttf", 60)
-    texto:setFillColor(0,0,200)
-    sceneGroup:insert(texto)
-
-
-    audio.play(somFundo)
+    local asphaltstitcherlogo = display.newText("Pinguo", screenW /2 , screenH / 3 , native.systemFont, 60)
+    asphaltstitcherlogo:setFillColor(0,0,0)
+    sceneGroup:insert(asphaltstitcherlogo)
 
     local placa_menu = display.newImage("img/placa.png")
     placa_menu.width=700
     placa_menu.height=900
     placa_menu.x = 370
-    placa_menu.y = screenH * 0.7   
+    placa_menu.y = screenH * 0.7
+
+   
     sceneGroup:insert(placa_menu)
-    ----------------------
-
-     --  local colisaobloco = display.newRect(300,1400,display.contentWidth,3)
-     --  colisaobloco.y= 1300
-     --  physics.addBody( colisaobloco, "static",{bounce=0.6 })
-     -- colisaobloco:setFillColor( 0.5,0.255 )
-     -- sceneGroup:insert(colisaobloco)
 
 
-     -- Runtime:addEventListener("enterFrame",neve)
-     
-     -- sceneGroup:insert(colisaobloco)
-     --   local  sheet1 = graphics.newImageSheet( "imagens/sprite.png", { width=90, height=90, numFrames=4})
-     --   local   pinguo = display.newSprite(sheet1,{name="man", start=1, count=5, time=300,loopCount=1} )
-     --  -- local rec
-  
-     --    physics.addBody( pinguo,"dynamic", {  bounce=1.2, friction=0.3} )
-     --     pinguo.x = 150 ; pinguo.y = 1000
-     --   pinguo.width = 90
-     --    pinguo.height= 150
-        
-     --    -- pinguo.isFixedRotation = true
-        
-      
-     --     sceneGroup:insert(pinguo)
-
-    --------------
-
-
-
-    local startButton = display.newImage("img/play.png")
-    startButton.width=300
+    local startButton = display.newImage("img/go.png")
+    startButton.width=150
     startButton.height=100
-    startButton.x = 370
-    startButton.y = screenH * 0.46
+    startButton.x = 450
+    startButton.y = 900
     sceneGroup:insert(startButton)
 
-    local optionsButton = display.newImage("img/options.png", 370, 900)
-    optionsButton.width=300
-    optionsButton.height=100
-    optionsButton.x=370
-    optionsButton.y=screenH * 0.54
-    sceneGroup:insert(optionsButton)
 
+    local backButton = display.newImage("img/back.png", 250, 900)
+    backButton.height = 100
+    backButton.width =150
+    sceneGroup:insert(backButton)
+
+    ---local alert = display.newImage('img/alertBg.png',600,490)
+     local scoreTF = display.newText('0',303,22,system.nativeFont,30)
+      scoreTF.text = score
+    alertScore = display.newText("Sua Pontuação Foi \n ".. scoreTF.text .. '!',350,780,"Snow For Santa",40)
+    --timesTF = display.newText('x3',289,56,system.nativeFont,30)
+    alertScore:setTextColor(0,0,0)  
+    --sceneGroup:insert(alert)
+   sceneGroup:insert(alertScore)
   
 
-    local creditsButton = display.newImage("img/credits.png", 370, 1100)
-    creditsButton.width=300
-    creditsButton.height=100
-    creditsButton.x=370
-    creditsButton.y=screenH * 0.7
-    sceneGroup:insert(creditsButton)
-
-    local scoresButton = display.newImage("img/scores.png", 370, 1100)
-    scoresButton.width=300
-    scoresButton.height=100
-    scoresButton.x=370
-    scoresButton.y=screenH * 0.62
-    sceneGroup:insert(scoresButton)
 
 
     local function goToStartGame(event)
@@ -112,25 +77,12 @@ function scene:create(event)
 
     local function goToOptions(event)
         print("options button has been tapped")
-        composer.gotoScene("options", {effect = "fade"})
+        composer.gotoScene("menu", {effect = "fade"})
         return true
     end
-    optionsButton:addEventListener("tap", goToOptions)
+    backButton:addEventListener("tap", goToOptions)
 
-     local function goToScores(event)
-        print("score button has been tapped")
-        composer.gotoScene("scores", {effect = "fade"})
-        return true
-    end
-    scoresButton:addEventListener("tap", goToScores)
-
-
-    local function goToCredits(event)
-        print("credits button has been tapped")
-        composer.gotoScene("credits", {effect = "fade"})
-        return true
-    end
-    creditsButton:addEventListener("tap", goToCredits)
+     
 
     
     
